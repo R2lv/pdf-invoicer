@@ -483,7 +483,7 @@ class Invoice extends \FPDF_rotation  {
 					}
 				}
 				$this->Cell($this->columnSpacing,$cHeight,'',0,0,'L',0);
-				$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252', $this->currency.' '.number_format($item['total'],2,$this->referenceformat[0],$this->referenceformat[1])),0,0,'C',1);
+				$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252', $this->currency.' '.number_format(floatval($item['total']),2,$this->referenceformat[0],$this->referenceformat[1])),0,0,'C',1);
 				$this->Ln();
 				$this->Ln($this->columnSpacing);
 			}
