@@ -40,6 +40,13 @@ class Invoice extends \FPDF_rotation  {
 	public $footernote;
 	public $dimensions;
 	public $display_tofrom = true;
+
+    public $columns;
+    public $firstColumnWidth;
+
+    public $currency;
+    public $maxImageDimensions;
+    public $language;
 	
    /******************************************
     * Class Constructor               		 *
@@ -189,7 +196,9 @@ class Invoice extends \FPDF_rotation  {
 		$this->flipflop = true;
 	}
 	
-	public function addItem($item,$description = "",$quantity,$vat,$price,$discount = 0,$total) {
+	public function addItem($item,$description,$quantity,$vat,$price,$discount,$total) {
+        $description = $description??"";
+        $discount = $discount??0;
 		$p['item'] 			= $item;
 		$p['description'] 	= $this->br2nl($description);
 		
