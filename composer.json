@@ -3,7 +3,8 @@
     "description":"PHP PDF Invoice generator",
     "license": "MIT",
     "require":{
-        "php":"^7.0 || ^8.0"
+        "php":"^7.0 || ^8.0",
+        "ext-iconv": "*"
     },
     "autoload": {
         "psr-4": {

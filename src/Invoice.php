@@ -362,8 +362,8 @@ class Invoice extends \FPDF_rotation  {
 				$this->SetTextColor(100,100,100);
 				$this->Ln(7);
 				for($i=1; $i<max(count($this->from),count($this->to)); $i++) {
-					$this->Cell($width,$lineheight,iconv("UTF-8", "ISO-8859-1",$this->from[$i]),0,0,'L');
-					$this->Cell(0,$lineheight,iconv("UTF-8", "ISO-8859-1",$this->to[$i]),0,0,'L');
+					$this->Cell($width,$lineheight,iconv("UTF-8", "ISO-8859-1",$this->from[$i]??""),0,0,'L');
+					$this->Cell(0,$lineheight,iconv("UTF-8", "ISO-8859-1",$this->to[$i]??""),0,0,'L');
 					$this->Ln(5);
 				}	
 				$this->Ln(-6);
@@ -469,7 +469,7 @@ class Invoice extends \FPDF_rotation  {
 					
 				}
 				$this->Cell($this->columnSpacing,$cHeight,'',0,0,'L',0);
-				$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252', $this->currency.' '.number_format($item['price'],2,$this->referenceformat[0],$this->referenceformat[1])),0,0,'C',1);
+				$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252', $this->currency.' '.number_format(floatval($item['price']),2,$this->referenceformat[0],$this->referenceformat[1])),0,0,'C',1);
 				if(isset($this->discountField)) 
 				{
 					$this->Cell($this->columnSpacing,$cHeight,'',0,0,'L',0);
