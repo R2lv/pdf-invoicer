@@ -47,6 +47,7 @@ class Invoice extends \FPDF_rotation  {
     public $currency;
     public $maxImageDimensions;
     public $language;
+    public $productsEnded;
 	
    /******************************************
     * Class Constructor               		 *
